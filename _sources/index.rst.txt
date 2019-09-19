@@ -1,0 +1,23 @@
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+
+Get and Update Models
+=====================
+
+.. automodule:: getModels
+    :members:
+
+.. literalinclude:: ../../mysite/getModels.py
+    :language: python
+
+
+Model Incorporating Server
+==========================
+.. automodule:: model_server
+    :members:
+
+.. literalinclude:: ../../mysite/model_server.py
+    :language: python

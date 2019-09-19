@@ -1,19 +1,1805 @@
-<html>
-	<head>
-		<script>
-			window.onload = function(){
-				document.getElementById("loginbtn").click(); 
-			}
-		</script>
-	</head>
-	<body>
 
-		<form action="https://cse.buet.ac.bd/moodle/login/index.php" method="post" id="login"  >
-			<input type="text" name="username" id="username" size="15" value="1505019" />
-			<input type="password" name="password" id="password" size="15" value="Cse3-2rocks"  />
-			<input type="submit" id="loginbtn" value="Log in" />
 
-		</form>
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Get and Update Models &mdash; English Text Corrector 1.0.0 documentation</title>
+  
 
-	</body>
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> English Text Corrector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Get and Update Models</a><ul>
+<li><a class="reference internal" href="#getmodels-py">getModels.py</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-model_server">Model Incorporating Server</a><ul>
+<li><a class="reference internal" href="#model-server-py">model_server.py</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">English Text Corrector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Get and Update Models</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-getModels">
+<span id="get-and-update-models"></span><h1>Get and Update Models<a class="headerlink" href="#module-getModels" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="getmodels-py">
+<h2>getModels.py<a class="headerlink" href="#getmodels-py" title="Permalink to this headline">¶</a></h2>
+<p><strong>This module links up with Django Models
+with the model_server.py</strong></p>
+<dl class="function">
+<dt id="getModels.addUser">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">addUser</code><span class="sig-paren">(</span><em class="sig-param">userid</em>, <em class="sig-param">name</em>, <em class="sig-param">email</em>, <em class="sig-param">password</em>, <em class="sig-param">phone</em>, <em class="sig-param">dob</em>, <em class="sig-param">city</em>, <em class="sig-param">country</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.addUser" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Create an user with the given parameters.All the no of solved questions are set accordingly</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>userid</strong> (<em>str</em>) – Userid is the unique representation of the users</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Name of a user</p></li>
+<li><p><strong>email</strong> (<em>str</em>) – Email address of the user</p></li>
+<li><p><strong>password</strong> (<em>str</em>) – User’s password</p></li>
+<li><p><strong>phone</strong> (<em>str</em>) – This parameter is not used in the end</p></li>
+<li><p><strong>dob</strong> (<em>str</em><em>(</em><em>yyyy-mm-dd</em><em>)</em>) – Date of Birth of the user</p></li>
+<li><p><strong>city</strong> (<em>str</em>) – City of user</p></li>
+<li><p><strong>country</strong> (<em>str</em>) – Country of the user</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if signup successful. Otherwise, if userid already exists returns False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.edit_profile">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">edit_profile</code><span class="sig-paren">(</span><em class="sig-param">userid</em>, <em class="sig-param">name</em>, <em class="sig-param">email</em>, <em class="sig-param">password</em>, <em class="sig-param">dob</em>, <em class="sig-param">city</em>, <em class="sig-param">country</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.edit_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Updates profile information  of an user</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>userid</strong> – userid</p></li>
+<li><p><strong>name</strong> – Name of the user</p></li>
+<li><p><strong>email</strong> – Email address of the user</p></li>
+<li><p><strong>password</strong> – Password of the user</p></li>
+<li><p><strong>dob</strong> – Date of Birth of the user(yyyy-mm-dd)</p></li>
+<li><p><strong>city</strong> – City of the user</p></li>
+<li><p><strong>country</strong> – Country of the user</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns True always</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.getAnSyn">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">getAnSyn</code><span class="sig-paren">(</span><em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.getAnSyn" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Extracts antonym/synonym quiz from the database and returns the questions with options and answer separated with ‘#’</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – userid</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string containing the question’s options and answer separated with ‘#’. Returns error if question finishes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.getAuth">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">getAuth</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">password</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.getAuth" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Authenticates an user given userid and password</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>str</em>) – Userid</p></li>
+<li><p><strong>password</strong> (<em>str</em>) – password given by the user</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if authentication is successful and False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.getBlankQuiz">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">getBlankQuiz</code><span class="sig-paren">(</span><em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.getBlankQuiz" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Extracts ‘Fill in the Blanks’ quiz from the database and returns the questions with options
+and answer separated with ‘#’</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – userid</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string containing the question and answer separated with ‘#’. Returns error if question finishes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.getChooseQuiz">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">getChooseQuiz</code><span class="sig-paren">(</span><em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.getChooseQuiz" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Extracts Multiple Choice quiz from the database and returns the questions with options
+and answer separated with ‘#’</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – userid</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string containing the question’s options and answer separated with ‘#’. Returns error if question finishes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.getIdiomQuiz">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">getIdiomQuiz</code><span class="sig-paren">(</span><em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.getIdiomQuiz" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Extracts ‘Phrase/IdiOms’ quiz from the database and returns the questions with options
+and answer separated with ‘#’</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – userid</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string containing the question’s options and answer separated with ‘#’. Returns error if question finishes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.get_personal_quiz">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">get_personal_quiz</code><span class="sig-paren">(</span><em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.get_personal_quiz" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Extracts ‘Personalized’ quiz from the database and returns the questions with options
+and answer separated with ‘#’</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>str</em>) – userid</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string containing the question’s options and answer separated with ‘#’. Returns error if question finishes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.get_profile">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">get_profile</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">password</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.get_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>The profile information comprising all user info is returned</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> – User id</p></li>
+<li><p><strong>password</strong> – password</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>All userinfo separated with ‘#’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.get_stat">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">get_stat</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.get_stat" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>The statistics comprising of all the questions attempted and corrected so far is returned</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – Userid of the user</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>String containing all corrected and attempted questions in different quiz formats</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.insertSubmissions">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">insertSubmissions</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">wrong</em>, <em class="sig-param">corr</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.insertSubmissions" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>For each wrong sentence a new submission is created.The sub_total in user info is updated accordingly</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>str</em>) – User id</p></li>
+<li><p><strong>wrong</strong> (<em>str</em>) – Wrong sentence input from the user</p></li>
+<li><p><strong>corr</strong> (<em>str</em>) – Corresponding correct sentence predicted from the model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>void , updates the database</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.s_tokenize">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">s_tokenize</code><span class="sig-paren">(</span><em class="sig-param">text</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.s_tokenize" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Tokenizes sentences with either ? or . or #. It also handles if there is a space in front of punctuation</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>text</strong> – The text to tokenize.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>array of string.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p>No Error.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.update_blank_solve">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">update_blank_solve</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">question_no</em>, <em class="sig-param">is_correct</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.update_blank_solve" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>After receiving an answer from the app this function updates the no. of ‘Fill in the Blanks’ solutions in the user info.
+The no. of ‘Fill in the Blanks’ questions attempted so far is increased by 1.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>str</em>) – Userid</p></li>
+<li><p><strong>question_no</strong> (<em>int</em>) – The id of the question the user has attempted</p></li>
+<li><p><strong>is_correct</strong> (<em>str</em>) – ‘true’ if the user has solved this question, ‘false’ otherwise</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>void</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.update_mcq_solve">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">update_mcq_solve</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">question_no</em>, <em class="sig-param">is_correct</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.update_mcq_solve" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>After receiving an answer from the app this function updates the no. of ‘Multiple Choice’ solutions in the user info.
+The no of ‘Multiple Choice’ questions attempted so far is increased by 1.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>str</em>) – Userid</p></li>
+<li><p><strong>question_no</strong> (<em>int</em>) – The id of the question the user has attempted</p></li>
+<li><p><strong>is_correct</strong> (<em>str</em>) – ‘true’ if the user has solved this question, ‘false’ otherwise</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>void</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.update_per_solve_false">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">update_per_solve_false</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">question_no</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.update_per_solve_false" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>After receiving an answer from the app this function updates the no. of ‘Personalized’ solutions in the user info.
+The no. of ‘Personalized’ questions attempted so far is increased by 1.
+This function is called when user fails to solve a question.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>str</em>) – Userid</p></li>
+<li><p><strong>question_no</strong> (<em>int</em>) – The id of the question the user has attempted</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>void</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.update_personal_solve">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">update_personal_solve</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">question_no</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.update_personal_solve" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>After receiving an answer from the app this function updates the no. of ‘Personalized’ solutions in the user info.
+The no. of ‘Personalized’ questions attempted so far is increased by 1.
+This function is called when user successfully solves a question.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>str</em>) – Userid</p></li>
+<li><p><strong>question_no</strong> (<em>int</em>) – The id of the question the user has attempted</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>void</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.update_phrase_solve">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">update_phrase_solve</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">question_no</em>, <em class="sig-param">is_correct</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.update_phrase_solve" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>After receiving an answer from the app this function updates the no. of ‘Idioms/Phrases’ solutions in the user info.
+The no. of ‘Idioms/Phrases’ questions attempted so far is increased by 1.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>str</em>) – Userid</p></li>
+<li><p><strong>question_no</strong> (<em>int</em>) – The id of the question the user has attempted</p></li>
+<li><p><strong>is_correct</strong> (<em>str</em>) – ‘true’ if the user has solved this question, ‘false’ otherwise</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>void</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="getModels.update_synonym_solve">
+<code class="sig-prename descclassname">getModels.</code><code class="sig-name descname">update_synonym_solve</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">question_no</em>, <em class="sig-param">is_correct</em><span class="sig-paren">)</span><a class="headerlink" href="#getModels.update_synonym_solve" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>After receiving an answer from the app this function updates the no. of ‘Antonym/Synonym’ solutions in the user info.
+The no. of ‘Antonym/Synonym’ questions attempted so far is increased by 1.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>str</em>) – Userid</p></li>
+<li><p><strong>question_no</strong> (<em>int</em>) – The id of the question the user has attempted</p></li>
+<li><p><strong>is_correct</strong> (<em>str</em>) – ‘true’ if the user has solved this question, ‘false’ otherwise</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>void</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">getModels.py</span>
+<span class="sd">===============================================</span>
+<span class="sd">**This module links up with Django Models</span>
+<span class="sd">with the model_server.py**</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;DJANGO_SETTINGS_MODULE&quot;</span><span class="p">,</span> <span class="s2">&quot;mysite.settings&quot;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">django</span>
+<span class="n">django</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+<span class="c1"># your imports, e.g. Django models</span>
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">SignUpUser</span><span class="p">,</span><span class="n">SignUpUser3</span><span class="p">,</span><span class="n">MainSubmissions</span>
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">RanQuizAnSyn</span><span class="p">,</span><span class="n">AnSynSolve</span><span class="p">,</span><span class="n">PiSolve</span><span class="p">,</span><span class="n">RanQuizPi</span><span class="p">,</span><span class="n">McqSolve</span><span class="p">,</span><span class="n">RanQuizMcq</span><span class="p">,</span><span class="n">RanQuizFill</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">sent_tokenize</span><span class="p">,</span><span class="n">word_tokenize</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+
+<span class="k">def</span> <span class="nf">s_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*Tokenizes sentences with either ? or . or #. It also handles if there is a space in front of punctuation*</span>
+
+<span class="sd">    :param text: The text to tokenize.</span>
+<span class="sd">    :return: array of string.</span>
+<span class="sd">    :raises: No Error.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">sents</span> <span class="o">=</span> <span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;([?!.])&quot;</span><span class="p">,</span><span class="n">text</span><span class="p">))</span>
+    <span class="n">y</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">sents</span><span class="p">:</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="s2">&quot;.&quot;</span> <span class="ow">or</span> <span class="n">x</span><span class="o">==</span><span class="s2">&quot;?&quot;</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">==</span> <span class="s2">&quot;!&quot;</span><span class="p">):</span>
+            <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">x</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">y</span>
+
+
+<span class="k">def</span> <span class="nf">addUser</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">email</span><span class="p">,</span><span class="n">password</span><span class="p">,</span><span class="n">phone</span><span class="p">,</span><span class="n">dob</span><span class="p">,</span><span class="n">city</span><span class="p">,</span><span class="n">country</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*Create an user with the given parameters.All the no of solved questions are set accordingly*</span>
+
+<span class="sd">    :param userid: Userid is the unique representation of the users</span>
+<span class="sd">    :type userid: str</span>
+<span class="sd">    :param name: Name of a user</span>
+<span class="sd">    :type name: str</span>
+<span class="sd">    :param email: Email address of the user</span>
+<span class="sd">    :type email: str</span>
+<span class="sd">    :param password: User&#39;s password</span>
+<span class="sd">    :type password: str</span>
+<span class="sd">    :param phone: This parameter is not used in the end</span>
+<span class="sd">    :type phone: str</span>
+<span class="sd">    :param dob: Date of Birth of the user</span>
+<span class="sd">    :type dob: str(yyyy-mm-dd)</span>
+<span class="sd">    :param city: City of user</span>
+<span class="sd">    :type city: str</span>
+<span class="sd">    :param country: Country of the user</span>
+<span class="sd">    :type country: str</span>
+<span class="sd">    :return: True if signup successful. Otherwise, if userid already exists returns False</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">newUser</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="n">userid</span><span class="p">,</span><span class="n">userid</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span><span class="n">email_add</span> <span class="o">=</span> <span class="n">email</span><span class="p">,</span><span class="n">password</span> <span class="o">=</span> <span class="n">password</span><span class="p">,</span><span class="n">mcq_solve</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ansyn_solve</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pi_solve</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fill_solve</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">per_solve</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sub_total</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">date_of_birth</span> <span class="o">=</span> <span class="n">dob</span><span class="p">,</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span><span class="p">,</span><span class="n">country</span> <span class="o">=</span> <span class="n">country</span><span class="p">)</span>
+        <span class="n">newUser</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+
+
+<span class="k">def</span> <span class="nf">getAuth</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">password</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;*Authenticates an user given userid and password*</span>
+
+<span class="sd">    :param id: Userid</span>
+<span class="sd">    :type id: str</span>
+<span class="sd">    :param password: password given by the user</span>
+<span class="sd">    :type password: str</span>
+<span class="sd">    :return: True if authentication is successful and False otherwise</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">password</span> <span class="o">==</span> <span class="n">password</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+
+<span class="k">def</span> <span class="nf">getAnSyn</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*Extracts antonym/synonym quiz from the database and returns the questions with options and answer separated with &#39;#&#39;*</span>
+
+<span class="sd">    :param id: userid</span>
+<span class="sd">    :type id: str</span>
+<span class="sd">    :return: A string containing the question&#39;s options and answer separated with &#39;#&#39;. Returns error if question finishes</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">last_solve</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">ansyn_solve</span>
+    <span class="k">except</span><span class="p">:</span>
+
+        <span class="n">last_solve</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span> <span class="n">ansyn_solve</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">last_solve</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">last_solve</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">question</span> <span class="o">=</span> <span class="n">RanQuizAnSyn</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">s_id</span><span class="o">=</span><span class="n">last_solve</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;error&quot;</span>
+
+    <span class="c1"># i = 0</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">s_id</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">s_ques</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">s_op_a</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">s_op_b</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">s_op_c</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">s_op_d</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">s_ans</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">s_ans_opt</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+
+    <span class="k">return</span> <span class="n">ret</span>
+
+<span class="c1"># Extracts fill in the blanks quiz from</span>
+<span class="c1"># the database and returns the</span>
+<span class="c1"># questions and send the question with options</span>
+<span class="c1"># and answer separated with &#39;#&#39;</span>
+
+<span class="k">def</span> <span class="nf">getBlankQuiz</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*Extracts &#39;Fill in the Blanks&#39; quiz from the database and returns the questions with options</span>
+<span class="sd">        and answer separated with &#39;#&#39;*</span>
+
+<span class="sd">        :param id: userid</span>
+<span class="sd">        :type id: str</span>
+<span class="sd">        :return: A string containing the question and answer separated with &#39;#&#39;. Returns error if question finishes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">last_solve</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">fill_solve</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">last_solve</span> <span class="o">=</span> <span class="n">AnSynSolve</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span><span class="n">fill_solve</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">last_solve</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">question</span> <span class="o">=</span> <span class="n">RanQuizFill</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">f_id</span><span class="o">=</span><span class="n">last_solve</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;error&quot;</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ret</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">f_id</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">f_ques</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">f_ans</span>
+
+
+
+    <span class="k">return</span> <span class="n">ret</span>
+
+
+<span class="c1"># Extracts phrase and idioms quiz from</span>
+<span class="c1"># the database and returns the</span>
+<span class="c1"># questions and send the question with options</span>
+<span class="c1"># and answer separated with &#39;#&#39;</span>
+<span class="k">def</span> <span class="nf">getIdiomQuiz</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*Extracts &#39;Phrase/IdiOms&#39; quiz from the database and returns the questions with options</span>
+<span class="sd">        and answer separated with &#39;#&#39;*</span>
+
+<span class="sd">        :param id: userid</span>
+<span class="sd">        :type id: str</span>
+<span class="sd">        :return: A string containing the question&#39;s options and answer separated with &#39;#&#39;. Returns error if question finishes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">last_solve</span> <span class="o">=</span><span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">pi_solve</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">last_solve</span> <span class="o">=</span> <span class="n">PiSolve</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span><span class="n">pi_solve</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">last_solve</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">question</span><span class="o">=</span><span class="n">RanQuizPi</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">p_id</span><span class="o">=</span><span class="n">last_solve</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;error&quot;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">p_id</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">p_ques</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">p_op_a</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">p_op_b</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">p_op_c</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">p_op_d</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">p_ans</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">p_ans_opt</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+
+    <span class="k">return</span> <span class="n">ret</span>
+
+<span class="c1"># Extracts mcq quiz from</span>
+<span class="c1"># the database and returns the</span>
+<span class="c1"># questions and send the question with options</span>
+<span class="c1"># and answer separated with &#39;#&#39;</span>
+<span class="k">def</span> <span class="nf">getChooseQuiz</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*Extracts Multiple Choice quiz from the database and returns the questions with options</span>
+<span class="sd">        and answer separated with &#39;#&#39;*</span>
+
+<span class="sd">        :param id: userid</span>
+<span class="sd">        :type id: str</span>
+<span class="sd">        :return: A string containing the question&#39;s options and answer separated with &#39;#&#39;. Returns error if question finishes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">last_solve</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">mcq_solve</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">last_solve</span> <span class="o">=</span> <span class="n">McqSolve</span><span class="p">(</span><span class="n">userid</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span><span class="n">mcq_solve</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">last_solve</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;You should be here!!&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">question</span> <span class="o">=</span> <span class="n">RanQuizMcq</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">q_id</span><span class="o">=</span><span class="n">last_solve</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;finished&quot;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">q_id</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">q_ques</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">q_op_a</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">q_op_b</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">q_op_c</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">q_op_d</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">q_ans</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">q_ans_opt</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+
+    <span class="k">return</span> <span class="n">ret</span>
+
+
+<span class="c1"># Extracts personalized quiz from</span>
+<span class="c1"># the database and returns the</span>
+<span class="c1"># questions and send the question with options</span>
+<span class="c1"># and answer separated with &#39;#&#39;</span>
+<span class="k">def</span> <span class="nf">get_personal_quiz</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*Extracts &#39;Personalized&#39; quiz from the database and returns the questions with options</span>
+<span class="sd">        and answer separated with &#39;#&#39;*</span>
+
+<span class="sd">        :param id: userid</span>
+<span class="sd">        :type id: str</span>
+<span class="sd">        :return: A string containing the question&#39;s options and answer separated with &#39;#&#39;. Returns error if question finishes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">last_solve</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">per_solve</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="c1"># last_solve = McqSolve(userid=id,mcq_solve=1)</span>
+        <span class="c1"># last_solve.save()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;You should not be here!!&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">question</span> <span class="o">=</span> <span class="n">MainSubmissions</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span> <span class="o">=</span> <span class="nb">id</span><span class="p">,</span><span class="n">sub_id</span><span class="o">=</span><span class="n">last_solve</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;404#finished&quot;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">sub_id</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">main_text</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="n">question</span><span class="o">.</span><span class="n">cor_text</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+    <span class="n">ret</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">question</span><span class="o">.</span><span class="n">repeat</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ret</span>
+
+<span class="c1"># This function updates the user info</span>
+<span class="c1"># for a request of edit profile from</span>
+<span class="c1"># the app</span>
+
+<span class="k">def</span> <span class="nf">edit_profile</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">email</span><span class="p">,</span><span class="n">password</span><span class="p">,</span><span class="n">dob</span><span class="p">,</span><span class="n">city</span><span class="p">,</span><span class="n">country</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*Updates profile information  of an user*</span>
+
+<span class="sd">    :param userid: userid</span>
+<span class="sd">    :param name: Name of the user</span>
+<span class="sd">    :param email: Email address of the user</span>
+<span class="sd">    :param password: Password of the user</span>
+<span class="sd">    :param dob: Date of Birth of the user(yyyy-mm-dd)</span>
+<span class="sd">    :param city: City of the user</span>
+<span class="sd">    :param country: Country of the user</span>
+<span class="sd">    :return: Returns True always</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="n">userid</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="n">userid</span><span class="p">,</span><span class="n">userid</span><span class="o">=</span><span class="n">name</span><span class="p">,</span><span class="n">email_add</span><span class="o">=</span><span class="n">email</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span><span class="n">date_of_birth</span><span class="o">=</span><span class="n">dob</span><span class="p">,</span><span class="n">city</span><span class="o">=</span><span class="n">city</span><span class="p">,</span><span class="n">country</span><span class="o">=</span><span class="n">country</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+
+
+<span class="k">def</span> <span class="nf">update_synonym_solve</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">question_no</span><span class="p">,</span><span class="n">is_correct</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*After receiving an answer from the app this function updates the no. of &#39;Antonym/Synonym&#39; solutions in the user info.</span>
+<span class="sd">    The no. of &#39;Antonym/Synonym&#39; questions attempted so far is increased by 1.*</span>
+
+
+<span class="sd">    :param id: Userid</span>
+<span class="sd">    :type id: str</span>
+
+<span class="sd">    :param question_no: The id of the question the user has attempted</span>
+<span class="sd">    :type question_no: int</span>
+
+<span class="sd">    :param is_correct: &#39;true&#39; if the user has solved this question, &#39;false&#39; otherwise</span>
+<span class="sd">    :type is_correct: str</span>
+
+<span class="sd">    :return: void</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">ansyn_solve</span> <span class="o">&lt;=</span> <span class="n">question_no</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_correct</span> <span class="o">==</span> <span class="s2">&quot;false&quot;</span><span class="p">):</span>
+                <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ansyn_solve</span><span class="o">=</span><span class="n">question_no</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ansyn_solve</span> <span class="o">=</span> <span class="n">question_no</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">ansyn_correct</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">ansyn_correct</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+
+<span class="c1"># After receiving an answer from</span>
+<span class="c1"># the app this function updates</span>
+<span class="c1"># the no. of solutions in the user info</span>
+<span class="c1"># The no of questions attempted so far is increased by 1</span>
+<span class="k">def</span> <span class="nf">update_blank_solve</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">question_no</span><span class="p">,</span><span class="n">is_correct</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*After receiving an answer from the app this function updates the no. of &#39;Fill in the Blanks&#39; solutions in the user info.</span>
+<span class="sd">        The no. of &#39;Fill in the Blanks&#39; questions attempted so far is increased by 1.*</span>
+
+
+<span class="sd">        :param id: Userid</span>
+<span class="sd">        :type id: str</span>
+
+<span class="sd">        :param question_no: The id of the question the user has attempted</span>
+<span class="sd">        :type question_no: int</span>
+
+<span class="sd">        :param is_correct: &#39;true&#39; if the user has solved this question, &#39;false&#39; otherwise</span>
+<span class="sd">        :type is_correct: str</span>
+
+<span class="sd">        :return: void</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">fill_solve</span> <span class="o">&lt;=</span> <span class="n">question_no</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_correct</span> <span class="o">==</span> <span class="s2">&quot;false&quot;</span><span class="p">):</span>
+                <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">fill_solve</span><span class="o">=</span><span class="n">question_no</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">fill_solve</span> <span class="o">=</span> <span class="n">question_no</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">fill_correct</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">fill_correct</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+
+
+<span class="c1"># After receiving an answer from</span>
+<span class="c1"># the app this function updates</span>
+<span class="c1"># the no. of solutions in the user info</span>
+<span class="c1"># The no of questions attempted so far is increased by 1</span>
+<span class="k">def</span> <span class="nf">update_phrase_solve</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">question_no</span><span class="p">,</span><span class="n">is_correct</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*After receiving an answer from the app this function updates the no. of &#39;Idioms/Phrases&#39; solutions in the user info.</span>
+<span class="sd">        The no. of &#39;Idioms/Phrases&#39; questions attempted so far is increased by 1.*</span>
+
+
+<span class="sd">        :param id: Userid</span>
+<span class="sd">        :type id: str</span>
+
+<span class="sd">        :param question_no: The id of the question the user has attempted</span>
+<span class="sd">        :type question_no: int</span>
+
+<span class="sd">        :param is_correct: &#39;true&#39; if the user has solved this question, &#39;false&#39; otherwise</span>
+<span class="sd">        :type is_correct: str</span>
+
+<span class="sd">        :return: void</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">pi_solve</span> <span class="o">&lt;=</span> <span class="n">question_no</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_correct</span> <span class="o">==</span> <span class="s2">&quot;false&quot;</span><span class="p">):</span>
+                <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">pi_solve</span><span class="o">=</span><span class="n">question_no</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">pi_solve</span> <span class="o">=</span> <span class="n">question_no</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">pi_correct</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">pi_correct</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+
+<span class="c1"># After receiving an answer from</span>
+<span class="c1"># the app this function updates</span>
+<span class="c1"># the no. of solutions in the user info</span>
+<span class="c1"># The no of questions attempted so far is increased by 1</span>
+<span class="k">def</span> <span class="nf">update_mcq_solve</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">question_no</span><span class="p">,</span><span class="n">is_correct</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*After receiving an answer from the app this function updates the no. of &#39;Multiple Choice&#39; solutions in the user info.</span>
+<span class="sd">        The no of &#39;Multiple Choice&#39; questions attempted so far is increased by 1.*</span>
+
+
+<span class="sd">        :param id: Userid</span>
+<span class="sd">        :type id: str</span>
+
+<span class="sd">        :param question_no: The id of the question the user has attempted</span>
+<span class="sd">        :type question_no: int</span>
+
+<span class="sd">        :param is_correct: &#39;true&#39; if the user has solved this question, &#39;false&#39; otherwise</span>
+<span class="sd">        :type is_correct: str</span>
+
+<span class="sd">        :return: void</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">mcq_solve</span> <span class="o">&lt;=</span> <span class="n">question_no</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">is_correct</span> <span class="o">==</span> <span class="s2">&quot;false&quot;</span><span class="p">):</span>
+                <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mcq_solve</span><span class="o">=</span><span class="n">question_no</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mcq_solve</span> <span class="o">=</span> <span class="n">question_no</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">mcq_correct</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">mcq_correct</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># After receiving an true answer from</span>
+<span class="c1"># the app this function updates</span>
+<span class="c1"># the no. of solutions in the user info</span>
+<span class="c1"># The no of questions attempted so far is increased by 1</span>
+
+<span class="k">def</span> <span class="nf">update_personal_solve</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">question_no</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*After receiving an answer from the app this function updates the no. of &#39;Personalized&#39; solutions in the user info.</span>
+<span class="sd">        The no. of &#39;Personalized&#39; questions attempted so far is increased by 1.</span>
+<span class="sd">        This function is called when user successfully solves a question.*</span>
+
+
+<span class="sd">        :param id: Userid</span>
+<span class="sd">        :type id: str</span>
+
+<span class="sd">        :param question_no: The id of the question the user has attempted</span>
+<span class="sd">        :type question_no: int</span>
+
+
+<span class="sd">        :return: void</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">per_solve</span> <span class="o">&lt;=</span> <span class="n">question_no</span><span class="p">:</span>
+            <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">per_solve</span> <span class="o">=</span> <span class="n">question_no</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">per_correct</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">per_correct</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+
+<span class="c1"># After receiving a false answer from</span>
+<span class="c1"># the app this function updates</span>
+<span class="c1"># the no. of solutions in the user info</span>
+<span class="c1"># The no of questions attempted so far is increased by 1</span>
+<span class="k">def</span> <span class="nf">update_per_solve_false</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">question_no</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*After receiving an answer from the app this function updates the no. of &#39;Personalized&#39; solutions in the user info.</span>
+<span class="sd">        The no. of &#39;Personalized&#39; questions attempted so far is increased by 1.</span>
+<span class="sd">        This function is called when user fails to solve a question.*</span>
+
+
+<span class="sd">        :param id: Userid</span>
+<span class="sd">        :type id: str</span>
+
+<span class="sd">        :param question_no: The id of the question the user has attempted</span>
+<span class="sd">        :type question_no: int</span>
+
+
+<span class="sd">        :return: void</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">per_solve</span> <span class="o">&lt;=</span> <span class="n">question_no</span><span class="p">:</span>
+            <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">per_solve</span> <span class="o">=</span> <span class="n">question_no</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">user</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+        <span class="n">sub_total</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">sub_total</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">psolve</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">per_solve</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="n">oldques</span> <span class="o">=</span> <span class="n">MainSubmissions</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span><span class="n">sub_id</span> <span class="o">=</span> <span class="n">question_no</span><span class="p">)</span>
+
+
+        <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">sub_total</span><span class="o">=</span><span class="n">sub_total</span><span class="p">)</span>
+        <span class="n">newSub</span> <span class="o">=</span> <span class="n">MainSubmissions</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span> <span class="n">sub_id</span><span class="o">=</span><span class="n">sub_total</span><span class="p">,</span> <span class="n">main_text</span><span class="o">=</span><span class="n">oldques</span><span class="o">.</span><span class="n">main_text</span><span class="p">,</span> <span class="n">cor_text</span><span class="o">=</span><span class="n">oldques</span><span class="o">.</span><span class="n">cor_text</span><span class="p">,</span><span class="n">repeat</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">newSub</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="c1"># The profile information comprising all</span>
+<span class="c1"># user info is returned</span>
+<span class="k">def</span> <span class="nf">get_profile</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">password</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*The profile information comprising all user info is returned*</span>
+
+<span class="sd">    :param id: User id</span>
+<span class="sd">    :param password: password</span>
+<span class="sd">    :return: All userinfo separated with &#39;#&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="c1"># if getAuth(id,password):</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">+=</span> <span class="n">entry</span><span class="o">.</span><span class="n">userid</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span> <span class="o">+</span><span class="n">entry</span><span class="o">.</span><span class="n">userpk</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span> <span class="o">+</span> <span class="n">entry</span><span class="o">.</span><span class="n">email_add</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span><span class="o">+</span> <span class="n">entry</span><span class="o">.</span><span class="n">city</span>  <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span><span class="n">entry</span><span class="o">.</span><span class="n">country</span>
+        <span class="n">ret</span> <span class="o">+=</span> <span class="s2">&quot;#&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">date_of_birth</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ret</span>
+
+
+
+<span class="k">def</span> <span class="nf">insertSubmissions</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">wrong</span><span class="p">,</span><span class="n">corr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*For each wrong sentence a new submission is created.The sub_total in user info is updated accordingly*</span>
+
+<span class="sd">    :param id: User id</span>
+<span class="sd">    :type id: str</span>
+<span class="sd">    :param wrong: Wrong sentence input from the user</span>
+<span class="sd">    :type wrong: str</span>
+<span class="sd">    :param corr: Corresponding correct sentence predicted from the model</span>
+<span class="sd">    :type corr: str</span>
+<span class="sd">    :return: void , updates the database</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">MainSubmissions</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">user_id</span> <span class="o">=</span> <span class="nb">id</span><span class="p">,</span><span class="n">main_text</span><span class="o">=</span><span class="n">wrong</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Nothing to do.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span>
+            <span class="n">sub_total</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">sub_total</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">psolve</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">per_solve</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">sub_total</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">psolve</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">per_solve</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">sub_total</span> <span class="o">=</span> <span class="n">sub_total</span><span class="p">,</span><span class="n">per_solve</span> <span class="o">=</span> <span class="n">psolve</span><span class="p">)</span>
+            <span class="n">newSub</span> <span class="o">=</span> <span class="n">MainSubmissions</span><span class="p">(</span><span class="n">user_id</span> <span class="o">=</span> <span class="nb">id</span><span class="p">,</span><span class="n">sub_id</span> <span class="o">=</span> <span class="n">sub_total</span><span class="p">,</span><span class="n">main_text</span> <span class="o">=</span> <span class="n">wrong</span><span class="p">,</span><span class="n">cor_text</span> <span class="o">=</span> <span class="n">corr</span><span class="p">)</span>
+            <span class="n">newSub</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+            <span class="c1"># print(psolve)</span>
+
+
+
+<span class="k">def</span> <span class="nf">get_stat</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;*The statistics comprising of all the questions attempted and corrected so far is returned*</span>
+
+<span class="sd">    :param name: Userid of the user</span>
+<span class="sd">    :type name: str</span>
+<span class="sd">    :return: String containing all corrected and attempted questions in different quiz formats</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">SignUpUser3</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userpk</span> <span class="o">=</span> <span class="n">name</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">fill_correct</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">fill_solve</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+        <span class="n">ret</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">mcq_correct</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">mcq_solve</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+        <span class="n">ret</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">pi_correct</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">pi_solve</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+        <span class="n">ret</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">ansyn_correct</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">ansyn_solve</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+        <span class="n">ret</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">per_correct</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">per_solve</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;#&quot;</span>
+        <span class="k">return</span> <span class="n">ret</span>
+<span class="c1"># tmpstr = &quot;This is not bad  .&quot;</span>
+<span class="c1"># tmp_len = len(tmpstr)</span>
+<span class="c1"># if(tmpstr[tmp_len - 2] == &#39; &#39;):</span>
+<span class="c1">#     tmpstr = tmpstr[:tmp_len - 2]</span>
+<span class="c1">#     tmpstr+= &quot;.&quot;</span>
+<span class="c1"># print(tmpstr)</span>
+<span class="c1">#</span>
+<span class="c1"># sp = SignUpUser3.objects.all()</span>
+<span class="c1"># for pr in sp :</span>
+<span class="c1">#     print( pr.userpk+ &quot;{}&quot;.format(pr.per_solve))</span>
+<span class="c1"># id = &quot;irfan&quot;</span>
+<span class="c1"># wrong = &quot;I are very good.&quot;</span>
+<span class="c1"># print(MainSubmissions.objects.filter(user_id = id,main_text = wrong).exists())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-model_server">
+<span id="model-incorporating-server"></span><h1>Model Incorporating Server<a class="headerlink" href="#module-model_server" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="model-server-py">
+<h2>model_server.py<a class="headerlink" href="#model-server-py" title="Permalink to this headline">¶</a></h2>
+<p><strong>This server is the default server that corrects sentences
+coming from the website, extension and mobile app</strong></p>
+<dl class="function">
+<dt id="model_server.appHandler">
+<code class="sig-prename descclassname">model_server.</code><code class="sig-name descname">appHandler</code><span class="sig-paren">(</span><em class="sig-param">input_str</em><span class="sig-paren">)</span><a class="headerlink" href="#model_server.appHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inputs from the app is handled here.The request is parsed and corresponding response is produced
+for the client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_str</strong> – Request from the mobile application</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Corresponding response for mobile app</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="model_server.client_thread">
+<code class="sig-prename descclassname">model_server.</code><code class="sig-name descname">client_thread</code><span class="sig-paren">(</span><em class="sig-param">connection</em>, <em class="sig-param">ip</em>, <em class="sig-param">port</em>, <em class="sig-param">max_buffer_size=5120</em><span class="sig-paren">)</span><a class="headerlink" href="#model_server.client_thread" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the thread function that is run when a client is connected. This takes the client input and
+sends the required output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection object of the server-client</p></li>
+<li><p><strong>ip</strong> (<em>str</em>) – Server’s IP Address</p></li>
+<li><p><strong>port</strong> (<em>int</em>) – Server’s Port</p></li>
+<li><p><strong>max_buffer_size</strong> (<em>int</em>) – Maximum Buffer Size</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Void</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="model_server.create_dict">
+<code class="sig-prename descclassname">model_server.</code><code class="sig-name descname">create_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model_server.create_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function creates correct and wrong tokenizer and reverse dictionary.This dictionaries will be used for predicting later on</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>correct tokenizer and  wrong tokenizer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="model_server.encode_sequences">
+<code class="sig-prename descclassname">model_server.</code><code class="sig-name descname">encode_sequences</code><span class="sig-paren">(</span><em class="sig-param">tokenizer</em>, <em class="sig-param">length</em>, <em class="sig-param">lines</em><span class="sig-paren">)</span><a class="headerlink" href="#model_server.encode_sequences" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function integer encodes the lines and creates tensors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tokenizer</strong> (<em>Tokenizer Class</em>) – A tokenizer object</p></li>
+<li><p><strong>length</strong> (<em>int</em>) – maximum length</p></li>
+<li><p><strong>lines</strong> (<em>list of str</em>) – an array of sentences</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Integer encoded padded sentences</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="model_server.main">
+<code class="sig-prename descclassname">model_server.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model_server.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the main function where evrything starts. The model is loaded and the dictionary is created for correct and wrong sentences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Void</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="model_server.predict_sent">
+<code class="sig-prename descclassname">model_server.</code><code class="sig-name descname">predict_sent</code><span class="sig-paren">(</span><em class="sig-param">inputText</em><span class="sig-paren">)</span><a class="headerlink" href="#model_server.predict_sent" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function predicts correctness of the sentences using the lang-8 model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputText</strong> – Input sentences from the user</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Suggested sentences by the model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="model_server.process_input">
+<code class="sig-prename descclassname">model_server.</code><code class="sig-name descname">process_input</code><span class="sig-paren">(</span><em class="sig-param">input_str</em><span class="sig-paren">)</span><a class="headerlink" href="#model_server.process_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is actually the main function in this class.The request from client is processed here and the
+corresponding output for the client is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_str</strong> (<em>str</em>) – Clients input string</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Corresponding response for the client</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="model_server.receive_input">
+<code class="sig-prename descclassname">model_server.</code><code class="sig-name descname">receive_input</code><span class="sig-paren">(</span><em class="sig-param">connection</em>, <em class="sig-param">max_buffer_size</em><span class="sig-paren">)</span><a class="headerlink" href="#model_server.receive_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the client request content length is greater than MAXIMUM_BUFFER_SIZE</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – Connection object of the server-client</p></li>
+<li><p><strong>max_buffer_size</strong> (<em>int</em>) – Maximum Buffer Size</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Processed output to end to the client</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="model_server.start_server">
+<code class="sig-prename descclassname">model_server.</code><code class="sig-name descname">start_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model_server.start_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Socket is created and the server waits for a connection from the hosts.Whenever any client connects the server opens a new thread and starts the thread.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Void</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="model_server.tokenization">
+<code class="sig-prename descclassname">model_server.</code><code class="sig-name descname">tokenization</code><span class="sig-paren">(</span><em class="sig-param">lines</em><span class="sig-paren">)</span><a class="headerlink" href="#model_server.tokenization" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function creates a Tokenizer from given sentences</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lines</strong> (<em>list of str</em>) – an array of sentences</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Tokenizer object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">model_server.py</span>
+<span class="sd">=======================================================</span>
+<span class="sd">**This server is the default server that corrects sentences</span>
+<span class="sd">coming from the website, extension and mobile app**</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">gmtime</span><span class="p">,</span> <span class="n">strftime</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">traceback</span>
+<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span><span class="p">,</span><span class="n">Lock</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="kn">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span><span class="p">,</span> <span class="n">argmax</span><span class="p">,</span> <span class="n">random</span><span class="p">,</span> <span class="n">take</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">LSTM</span><span class="p">,</span> <span class="n">Embedding</span><span class="p">,</span> <span class="n">Bidirectional</span><span class="p">,</span> <span class="n">RepeatVector</span><span class="p">,</span> <span class="n">TimeDistributed</span> <span class="p">,</span><span class="n">GRU</span>
+<span class="kn">from</span> <span class="nn">keras.preprocessing.text</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
+<span class="kn">from</span> <span class="nn">keras.callbacks</span> <span class="kn">import</span> <span class="n">ModelCheckpoint</span>
+<span class="kn">from</span> <span class="nn">keras.utils.vis_utils</span> <span class="kn">import</span> <span class="n">plot_model</span>
+<span class="kn">from</span> <span class="nn">keras.preprocessing.sequence</span> <span class="kn">import</span> <span class="n">pad_sequences</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
+<span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">optimizers</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">sent_tokenize</span><span class="p">,</span><span class="n">word_tokenize</span>
+<span class="kn">import</span> <span class="nn">getModels</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">def</span> <span class="nf">save_obj</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span> <span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">load_obj</span><span class="p">(</span><span class="n">name</span> <span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+
+
+<span class="n">model</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="bp">None</span>    <span class="c1">#graph is used for multi threading purpose to restore the initial graph</span>
+<span class="n">model_lock</span>  <span class="o">=</span> <span class="n">Lock</span><span class="p">()</span>    <span class="c1"># This lock object used to synchronise between different threads</span>
+<span class="n">wrong_tokenizer</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">corr_tokenizer</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">rev_dictionary</span> <span class="o">=</span> <span class="bp">None</span>       <span class="c1"># This reverse dictionary is created for the correct tokens to speed up prediction</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;This is the main function where evrything starts. The model is loaded and the dictionary is created for correct and wrong sentences.</span>
+
+<span class="sd">    :return: Void</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">model</span><span class="p">,</span><span class="n">graph</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;../../model_lang8_200.h1&quot;</span><span class="p">)</span>   <span class="c1"># Model created from Lang 8 dataset with sentences less than 200 characters</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_default_graph</span><span class="p">()</span>
+    <span class="n">create_dict</span><span class="p">()</span>
+    <span class="n">start_server</span><span class="p">()</span>
+
+
+<span class="c1"># This function is used to tokenize sentences for creating tensors</span>
+<span class="k">def</span> <span class="nf">tokenization</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This function creates a Tokenizer from given sentences</span>
+
+<span class="sd">    :param lines: an array of sentences</span>
+<span class="sd">    :type lines: list of str</span>
+<span class="sd">    :return: A Tokenizer object</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="s1">&#39;&quot;#$%&amp;*+/:;&lt;=&gt;?@[</span><span class="se">\\</span><span class="s1">]^_`{|}~</span><span class="se">\t\n</span><span class="s1">&#39;</span> <span class="p">,</span><span class="n">lower</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">tokenizer</span><span class="o">.</span><span class="n">fit_on_texts</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tokenizer</span>
+
+<span class="c1"># This function pads the sequence integer encooding the sequence</span>
+<span class="k">def</span> <span class="nf">encode_sequences</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This function integer encodes the lines and creates tensors</span>
+
+<span class="sd">    :param tokenizer: A tokenizer object</span>
+<span class="sd">    :type tokenizer: Tokenizer Class</span>
+<span class="sd">    :param length: maximum length</span>
+<span class="sd">    :type length: int</span>
+<span class="sd">    :param lines: an array of sentences</span>
+<span class="sd">    :type lines: list of str</span>
+<span class="sd">    :return: Integer encoded padded sentences</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># integer encode sequences</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_sequences</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+    <span class="c1"># pad sequences with 0 values</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">pad_sequences</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">maxlen</span><span class="o">=</span><span class="n">length</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;post&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">seq</span>
+
+
+
+
+<span class="k">def</span> <span class="nf">create_dict</span><span class="p">():</span>
+
+    <span class="sd">&quot;&quot;&quot;This function creates correct and wrong tokenizer and reverse dictionary.This dictionaries will be used for predicting later on</span>
+
+<span class="sd">    :return: correct tokenizer and  wrong tokenizer</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># wrongFile = open(&quot;grammar-checker-nucle-50/wrong.m2&quot;, &quot;r&quot;)</span>
+    <span class="c1"># corrFile = open(&quot;grammar-checker-nucle-50/corr.m2&quot;, &quot;r&quot;)</span>
+
+    <span class="k">global</span> <span class="n">wrong_tokenizer</span><span class="p">,</span><span class="n">corr_tokenizer</span><span class="p">,</span><span class="n">rev_dictionary</span>
+
+    <span class="n">wrongFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../lang8/wrong.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">corrFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../lang8/corr.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+    <span class="n">wrong_dataset_old</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">corr_dataset_old</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">wrongFile</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+    <span class="k">while</span> <span class="n">line</span><span class="p">:</span>
+        <span class="n">wrong_dataset_old</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">wrongFile</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        <span class="c1"># line.lower()</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">corrFile</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">line</span><span class="p">:</span>
+        <span class="n">corr_dataset_old</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">corrFile</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        <span class="c1"># line.lower()</span>
+
+    <span class="n">wrongFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">corrFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+    <span class="n">wrong_l</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">corr_l</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">wrong_dataset</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">corr_dataset</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Only the sentences less than 200 characters are</span>
+    <span class="c1"># stored as dataset</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">wrong_dataset_old</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">wrong_dataset_old</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">200</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">corr_dataset_old</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">):</span>
+            <span class="n">wrong_dataset</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wrong_dataset_old</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">corr_dataset</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">corr_dataset_old</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">wrong_l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">wrong_dataset_old</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+            <span class="n">corr_l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">corr_dataset_old</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+    <span class="c1"># The dataset is curtailed to contain 200000 sentences</span>
+    <span class="c1"># so that we can train the model</span>
+    <span class="c1"># in reasonable amount of time</span>
+
+    <span class="n">wrong_dataset</span> <span class="o">=</span> <span class="n">wrong_dataset</span><span class="p">[:</span><span class="mi">200000</span><span class="p">]</span>
+    <span class="n">corr_dataset</span> <span class="o">=</span> <span class="n">corr_dataset</span><span class="p">[:</span><span class="mi">200000</span><span class="p">]</span>
+    <span class="n">wrong_tokenizer</span> <span class="o">=</span> <span class="n">tokenization</span><span class="p">(</span><span class="n">wrong_dataset</span><span class="p">)</span>
+    <span class="n">corr_tokenizer</span> <span class="o">=</span> <span class="n">tokenization</span><span class="p">(</span><span class="n">corr_dataset</span><span class="p">)</span>
+
+    <span class="n">rev_dictionary</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">corr_tokenizer</span><span class="o">.</span><span class="n">word_index</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">rev_dictionary</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">word</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;dictionary created&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrong_dataset</span><span class="p">,</span><span class="n">corr_dataset</span>
+    <span class="c1"># return wrong_tokenizer,corr_tokenizer</span>
+
+<span class="k">def</span> <span class="nf">get_word</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">word_index</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">word</span>
+    <span class="k">return</span> <span class="bp">None</span>
+
+<span class="c1"># Correct sentences are predicted from</span>
+<span class="c1"># Wrong sentences with this function</span>
+<span class="c1"># The input to the function is the input text by the user splitted</span>
+<span class="c1"># using newline</span>
+<span class="k">def</span> <span class="nf">predict_sent</span><span class="p">(</span><span class="n">inputText</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;This function predicts correctness of the sentences using the lang-8 model</span>
+
+<span class="sd">    :param inputText: Input sentences from the user</span>
+<span class="sd">    :return: Suggested sentences by the model</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">rev_dictionary</span><span class="p">,</span><span class="n">corr_tokenizer</span><span class="p">,</span><span class="n">wrong_tokenizer</span>
+
+    <span class="n">model_lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+
+
+    <span class="k">with</span> <span class="n">graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+        <span class="n">testX</span> <span class="o">=</span> <span class="n">encode_sequences</span><span class="p">(</span><span class="n">wrong_tokenizer</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">inputText</span><span class="p">)</span>
+        <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_classes</span><span class="p">(</span><span class="n">testX</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">testX</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">testX</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
+
+    <span class="n">model_lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;predicted----------------&quot;</span><span class="p">)</span>
+    <span class="n">preds_text</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;pred_len = {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">preds</span><span class="p">)))</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">preds</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">cnt</span> <span class="o">%</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;cnt: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cnt</span><span class="p">))</span>
+        <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">)):</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">rev_dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="s2">&quot;NF&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="n">rev_dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">[</span> <span class="n">j</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;NF&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;NF&quot;</span><span class="p">)):</span>
+                    <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;NF&quot;</span><span class="p">):</span>
+                    <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+        <span class="n">preds_text</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">temp</span><span class="p">))</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;prediction finished&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">preds_text</span>
+
+<span class="k">def</span> <span class="nf">start_server</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Socket is created and the server waits for a connection from the hosts.Whenever any client connects the server opens a new thread and starts the thread.</span>
+
+<span class="sd">    :return: Void</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="mi">8080</span> <span class="c1"># arbitrary non-privileged port</span>
+    <span class="n">soc</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+    <span class="n">soc</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SOL_SOCKET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SO_REUSEADDR</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Socket created&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">soc</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Bind failed. Error : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()))</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+
+    <span class="n">soc</span><span class="o">.</span><span class="n">listen</span><span class="p">()</span> <span class="c1"># queue up to 6 requests</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Socket now listening&quot;</span><span class="p">)</span>
+    <span class="c1"># infinite loop- do not reset for every requests</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">connection</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="n">soc</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+        <span class="n">ip</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">address</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">address</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Connected with &quot;</span> <span class="o">+</span> <span class="n">ip</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="n">port</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># A new thread is opened for every single client</span>
+            <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">client_thread</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Thread did not start.&quot;</span><span class="p">)</span>
+            <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
+            <span class="n">soc</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="c1"># The thread function that is run when a new thread</span>
+<span class="c1"># is opened.</span>
+<span class="k">def</span> <span class="nf">client_thread</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">max_buffer_size</span><span class="o">=</span><span class="mi">5120</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This is the thread function that is run when a client is connected. This takes the client input and</span>
+<span class="sd">    sends the required output.</span>
+
+<span class="sd">    :param connection: Connection object of the server-client</span>
+<span class="sd">    :param ip: Server&#39;s IP Address</span>
+<span class="sd">    :type ip: str</span>
+<span class="sd">    :param port: Server&#39;s Port</span>
+<span class="sd">    :type port: int</span>
+<span class="sd">    :param max_buffer_size: Maximum Buffer Size</span>
+<span class="sd">    :type max_buffer_size: int</span>
+<span class="sd">    :return: Void</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">model</span>
+    <span class="n">is_active</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="c1"># while is_active:</span>
+    <span class="n">client_input</span> <span class="o">=</span> <span class="n">receive_input</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">max_buffer_size</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Processed result: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">client_input</span><span class="p">))</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">client_input</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf8&quot;</span><span class="p">))</span>
+
+    <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1">#------  Input size is validated in this function</span>
+
+<span class="k">def</span> <span class="nf">receive_input</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">max_buffer_size</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Checks if the client request content length is greater than MAXIMUM_BUFFER_SIZE</span>
+
+<span class="sd">    :param connection: Connection object of the server-client</span>
+<span class="sd">    :param max_buffer_size: Maximum Buffer Size</span>
+<span class="sd">    :type max_buffer_size: int</span>
+<span class="sd">    :return: Processed output to end to the client</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">client_input</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">max_buffer_size</span><span class="p">)</span>
+    <span class="n">client_input_size</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">client_input</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">client_input_size</span> <span class="o">&gt;</span> <span class="n">max_buffer_size</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The input size is greater than expected {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">client_input_size</span><span class="p">))</span>
+    <span class="n">decoded_input</span> <span class="o">=</span> <span class="n">client_input</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">process_input</span><span class="p">(</span><span class="n">decoded_input</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="c1"># The input is processed and appropriate</span>
+<span class="c1"># action is taken in this function</span>
+
+<span class="k">def</span> <span class="nf">process_input</span><span class="p">(</span><span class="n">input_str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This is actually the main function in this class.The request from client is processed here and the</span>
+<span class="sd">    corresponding output for the client is returned.</span>
+
+<span class="sd">    :param input_str: Clients input string</span>
+<span class="sd">    :type input_str: str</span>
+<span class="sd">    :return: Corresponding response for the client</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Processing the input received from client&quot;</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># *--------Input from website and extension</span>
+    <span class="c1"># *--------enters this if block</span>
+    <span class="k">if</span><span class="p">(</span><span class="s2">&quot;POST / HTTP&quot;</span> <span class="ow">in</span> <span class="n">input_str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This if block processes Website and EXtension data</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">is_auth</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">print</span><span class="p">((</span><span class="n">input_str</span><span class="p">))</span>
+        <span class="n">input_str</span> <span class="o">=</span> <span class="n">input_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\r\n\r\n</span><span class="s2">&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="n">input_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span>
+        <span class="n">sentences</span> <span class="o">=</span> <span class="n">input_str</span>
+        <span class="n">userid</span> <span class="o">=</span> <span class="s2">&quot;irfan&quot;</span>
+
+        <span class="c1">#*------- Only input from the extension to verify user login</span>
+        <span class="c1">#*------- enters this if block</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">userid</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">is_auth</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">getModels</span><span class="o">.</span><span class="n">getAuth</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span><span class="n">password</span><span class="p">)):</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;404&quot;</span>
+        <span class="c1"># **------ This if block is where everything should enter</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">sentences</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">userid</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1">#**-------- This is only kept for older version compablity</span>
+
+        <span class="k">if</span> <span class="n">is_auth</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">inputText</span> <span class="o">=</span> <span class="n">getModels</span><span class="o">.</span><span class="n">s_tokenize</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+            <span class="n">output_text</span> <span class="o">=</span> <span class="n">predict_sent</span><span class="p">(</span><span class="n">inputText</span><span class="p">)</span>
+            <span class="n">span1</span> <span class="o">=</span> <span class="s2">&quot;&lt;div class=&#39;wrong&#39; id=&#39;w_{}&#39;&gt;&quot;</span>
+            <span class="n">span2</span> <span class="o">=</span> <span class="s2">&quot;&lt;/div&gt;&quot;</span>
+
+            <span class="n">scnt</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">inputText</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span> <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+                <span class="n">output_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">output_len</span><span class="p">)</span>
+
+                <span class="c1">#**------- This two blocks takes care of the extra space before the full stop</span>
+
+                <span class="k">if</span><span class="p">(</span><span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">output_len</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span><span class="p">):</span>
+                    <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">][:</span><span class="n">output_len</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+                    <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot;.&quot;</span>
+                    <span class="c1"># print(output_text[i])</span>
+
+                <span class="n">input_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">inputText</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">inputText</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">input_len</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span><span class="p">):</span>
+                    <span class="n">inputText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">inputText</span><span class="p">[</span><span class="n">i</span><span class="p">][:</span><span class="n">input_len</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span>
+                    <span class="n">inputText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot;.&quot;</span>
+
+                <span class="c1"># If the text is detected as wrong this if block is entered</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">inputText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="o">!=</span> <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+                    <span class="n">getModels</span><span class="o">.</span><span class="n">insertSubmissions</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span><span class="n">inputText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(),</span><span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                    <span class="n">scnt</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">span1</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scnt</span><span class="p">)</span> <span class="o">+</span><span class="s2">&quot;&lt;span class=&#39;frin_replaced&#39;&gt;&quot;</span> <span class="o">+</span>  <span class="n">inputText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>  <span class="o">+</span> <span class="s2">&quot;&lt;/span&gt;&quot;</span><span class="o">+</span><span class="p">(</span><span class="s2">&quot;&lt;div class=&#39;sugg_word_list&#39; id=&#39;s_{}&#39;&gt;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scnt</span><span class="p">)</span>
+                    <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;&lt;button class = &#39;sugg_word&#39; id=&#39;sw_{}_{}&#39;&gt;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scnt</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;&lt;/button&gt;&quot;</span>
+                    <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span>  <span class="n">span2</span> <span class="o">+</span> <span class="n">span2</span>
+
+                    <span class="k">print</span><span class="p">(</span><span class="n">inputText</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                    <span class="k">print</span><span class="p">(</span><span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&lt;span class=&#39;frin_replaced&#39;&gt;&quot;</span> <span class="o">+</span>  <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="o">+</span> <span class="s2">&quot;&lt;/span&gt;&quot;</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_text</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">inputText</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">inputText</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;result&quot;</span> <span class="o">+</span> <span class="n">result</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_text</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+
+        <span class="k">if</span><span class="p">(</span><span class="n">f</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="c1">#---- *** This block adds http headers</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="s2">&quot;HTTP/1.1 200 OK</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="o">+</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%a, </span><span class="si">%d</span><span class="s2"> %b %Y %I:%M:%S %p %Z&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">())</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">Server: Python/6.6.6 (custom)</span><span class="se">\r\n</span><span class="s2">Content-Type: text/html</span><span class="se">\r\n</span><span class="s2">&quot;</span>
+            <span class="n">resp</span> <span class="o">+=</span> <span class="s2">&quot;Access-Control-Allow-Origin: http://127.0.0.1:8000</span><span class="se">\r\n</span><span class="s2">&quot;</span>
+            <span class="n">resp</span> <span class="o">+=</span> <span class="s2">&quot;Content-Length:{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+            <span class="n">resp</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\r\n\r\n</span><span class="s2">&quot;</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">resp</span> <span class="o">+</span> <span class="n">result</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1">#--*** For processing app requests the inut is passed to the appHandler function</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">appHandler</span><span class="p">(</span><span class="n">input_str</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+<span class="c1"># **------- This function processes the inputs from the app and sends corresponding output</span>
+<span class="c1"># **-------- to the app</span>
+<span class="k">def</span> <span class="nf">appHandler</span><span class="p">(</span><span class="n">input_str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Inputs from the app is handled here.The request is parsed and corresponding response is produced</span>
+<span class="sd">    for the client.</span>
+
+<span class="sd">    :param input_str: Request from the mobile application</span>
+<span class="sd">    :return: Corresponding response for mobile app</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">input_str</span><span class="p">)</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="n">input_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span>
+    <span class="n">msgType</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;error&quot;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">msgType</span> <span class="o">==</span> <span class="s2">&quot;signin&quot;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">email</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">phone</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">userid</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">dob</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">loc</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">getModels</span><span class="o">.</span><span class="n">addUser</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">email</span><span class="p">,</span><span class="n">password</span><span class="p">,</span><span class="n">phone</span><span class="p">,</span><span class="n">dob</span><span class="p">,</span><span class="n">loc</span><span class="p">,</span><span class="s2">&quot;Bangladesh&quot;</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;Userid already exists&quot;</span>
+
+    <span class="k">elif</span><span class="p">(</span><span class="n">msgType</span> <span class="o">==</span> <span class="s2">&quot;login&quot;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">getModels</span><span class="o">.</span><span class="n">getAuth</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">password</span><span class="p">)</span><span class="o">==</span><span class="bp">True</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;404&quot;</span>
+
+    <span class="k">elif</span><span class="p">(</span><span class="n">msgType</span> <span class="o">==</span> <span class="s2">&quot;spelling&quot;</span><span class="p">):</span>
+        <span class="n">inputSent</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+        <span class="n">userid</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">inputText</span> <span class="o">=</span> <span class="n">getModels</span><span class="o">.</span><span class="n">s_tokenize</span><span class="p">(</span><span class="n">inputSent</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">inp</span> <span class="ow">in</span> <span class="n">inputText</span><span class="p">:</span>
+            <span class="n">inp</span> <span class="o">=</span> <span class="n">inp</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+        <span class="n">output_text</span> <span class="o">=</span> <span class="n">predict_sent</span><span class="p">(</span><span class="n">inputText</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_text</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+
+            <span class="c1"># output_text[i] = output_text[i].lstrip().rstrip()</span>
+            <span class="n">output_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">output_len</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">output_len</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span><span class="p">):</span>
+                <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">][:</span><span class="n">output_len</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span>
+                <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot;.&quot;</span>
+                <span class="c1"># print(output_text[i])</span>
+
+            <span class="n">input_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">inputText</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">inputText</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">input_len</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span><span class="p">):</span>
+                <span class="n">inputText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">inputText</span><span class="p">[</span><span class="n">i</span><span class="p">][:</span><span class="n">input_len</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span>
+                <span class="n">inputText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot;.&quot;</span>
+
+            <span class="k">if</span><span class="p">(</span><span class="n">inputText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="o">!=</span> <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+                <span class="n">getModels</span><span class="o">.</span><span class="n">insertSubmissions</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span> <span class="n">inputText</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(),</span> <span class="n">output_text</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_text</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200#&quot;</span> <span class="o">+</span> <span class="n">result</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">msgType</span> <span class="o">==</span> <span class="s2">&quot;synonymquiz&quot;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">questions</span> <span class="o">=</span> <span class="n">getModels</span><span class="o">.</span><span class="n">getAnSyn</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200#&quot;</span> <span class="o">+</span> <span class="n">questions</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">msgType</span><span class="o">==</span><span class="s2">&quot;blankquiz&quot;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">questions</span> <span class="o">=</span> <span class="n">getModels</span><span class="o">.</span><span class="n">getBlankQuiz</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200#&quot;</span> <span class="o">+</span> <span class="n">questions</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">msgType</span><span class="o">==</span><span class="s2">&quot;idiomquiz&quot;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">questions</span> <span class="o">=</span> <span class="n">getModels</span><span class="o">.</span><span class="n">getIdiomQuiz</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200#&quot;</span> <span class="o">+</span> <span class="n">questions</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">msgType</span><span class="o">==</span><span class="s2">&quot;choosequiz&quot;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">questions</span> <span class="o">=</span> <span class="n">getModels</span><span class="o">.</span><span class="n">getChooseQuiz</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200#&quot;</span> <span class="o">+</span> <span class="n">questions</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">msgType</span> <span class="o">==</span> <span class="s2">&quot;synonymresult&quot;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">question_no</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fields</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">is_correct</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span> <span class="s2">&quot;{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">question_no</span><span class="p">)</span> <span class="o">+</span> <span class="n">is_correct</span><span class="p">)</span>
+        <span class="c1"># if(is_correct == &quot;true&quot;):</span>
+        <span class="n">getModels</span><span class="o">.</span><span class="n">update_synonym_solve</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">question_no</span><span class="p">,</span><span class="n">is_correct</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200&quot;</span>
+
+    <span class="k">elif</span> <span class="p">(</span><span class="n">msgType</span> <span class="o">==</span> <span class="s2">&quot;personalquiz&quot;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">questions</span> <span class="o">=</span> <span class="n">getModels</span><span class="o">.</span><span class="n">get_personal_quiz</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">questions</span> <span class="o">==</span> <span class="s2">&quot;404#finished&quot;</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">questions</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200#&quot;</span> <span class="o">+</span> <span class="n">questions</span>
+
+    <span class="k">elif</span> <span class="p">(</span><span class="n">msgType</span> <span class="o">==</span> <span class="s2">&quot;blankresult&quot;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">question_no</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fields</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">is_correct</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">question_no</span><span class="p">)</span> <span class="o">+</span> <span class="n">is_correct</span><span class="p">)</span>
+        <span class="c1"># if (is_correct == &quot;true&quot;):</span>
+        <span class="n">getModels</span><span class="o">.</span><span class="n">update_blank_solve</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">question_no</span><span class="p">,</span><span class="n">is_correct</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200&quot;</span>
+
+    <span class="k">elif</span> <span class="p">(</span><span class="n">msgType</span> <span class="o">==</span> <span class="s2">&quot;idiomresult&quot;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">question_no</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fields</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">is_correct</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="c1"># print(&quot;{}\n&quot;.format(question_no) + is_correct)</span>
+        <span class="c1"># if (is_correct == &quot;true&quot;):</span>
+        <span class="n">getModels</span><span class="o">.</span><span class="n">update_phrase_solve</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">question_no</span><span class="p">,</span><span class="n">is_correct</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200&quot;</span>
+
+    <span class="k">elif</span> <span class="p">(</span><span class="n">msgType</span> <span class="o">==</span> <span class="s2">&quot;chooseresult&quot;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">question_no</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fields</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">is_correct</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">question_no</span><span class="p">)</span> <span class="o">+</span> <span class="n">is_correct</span><span class="p">)</span>
+        <span class="c1"># if (is_correct == &quot;true&quot; or ):</span>
+        <span class="n">getModels</span><span class="o">.</span><span class="n">update_mcq_solve</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">question_no</span><span class="p">,</span><span class="n">is_correct</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200&quot;</span>
+
+    <span class="k">elif</span> <span class="p">(</span><span class="n">msgType</span> <span class="o">==</span> <span class="s2">&quot;personalresult&quot;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">question_no</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fields</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">is_correct</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">question_no</span><span class="p">)</span> <span class="o">+</span> <span class="n">is_correct</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">is_correct</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span><span class="p">):</span>
+            <span class="n">getModels</span><span class="o">.</span><span class="n">update_personal_solve</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">question_no</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">getModels</span><span class="o">.</span><span class="n">update_per_solve_false</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">question_no</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200&quot;</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">msgType</span> <span class="o">==</span> <span class="s2">&quot;myprofile&quot;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200#&quot;</span> <span class="o">+</span> <span class="n">getModels</span><span class="o">.</span><span class="n">get_profile</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">password</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="p">(</span><span class="n">msgType</span> <span class="o">==</span> <span class="s2">&quot;editprofile&quot;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">email</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># phone = fields[3].split(&quot;=&quot;)[1]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">userid</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">dob</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">loc</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">getModels</span><span class="o">.</span><span class="n">edit_profile</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="s2">&quot;Bangladesh&quot;</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;Userid already exists&quot;</span>
+
+
+    <span class="k">elif</span> <span class="p">(</span><span class="n">msgType</span> <span class="o">==</span> <span class="s2">&quot;statistics&quot;</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;200#&quot;</span> <span class="o">+</span> <span class="n">getModels</span><span class="o">.</span><span class="n">get_stat</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="c1"># def predict(model,wrong_sent):</span>
+<span class="c1">#     return &quot;hello&quot;</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Irtesam Mahmud Khan, Farhan Feroz, Md Nasim Uddin, Md Irfan Faruk Shakil
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
